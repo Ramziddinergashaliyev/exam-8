@@ -1,0 +1,19 @@
+.new {
+  padding-top: 80px;
+  border-bottom: 1px solid #ddd;
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+  @media (max-width: 800px) {
+    &__products {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 650px) {
+    &__products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

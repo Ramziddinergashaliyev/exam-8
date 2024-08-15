@@ -1,0 +1,88 @@
+.customer {
+    padding: 40px 0;
+
+    &__top {
+        position: relative;
+
+        h2 {
+            text-align: left;
+            padding-bottom: 20px;
+        }
+    }
+
+    &__swaper {
+        width: 100%;
+    }
+}
+
+.swiper {
+    padding: 20px 0;
+    width: 100%;
+
+    &__card {
+        border: 1px solid #0000001A;
+        height: 240px;
+        border-radius: 20px;
+        padding: 28px 30px;
+    }
+
+    &__stars {
+        display: flex;
+        gap: 8px;
+
+        svg {
+            color: orange;
+        }
+    }
+
+    &__info {
+        padding: 15px 0;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 22px;
+        color: #000000;
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #01AB31;
+        display: grid;
+        place-items: center;
+
+        svg {
+            font-size: 14px;
+            color: white;
+        }
+    }
+
+    &__desc {
+        font-family: Satoshi;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        text-align: left;
+        color: #000000;
+        opacity: 60%;
+
+    }
+}
+
+.swiper .swiper-button-prev::after {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.swiper .swiper-button-next::after {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
