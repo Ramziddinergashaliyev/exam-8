@@ -8,6 +8,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import "./header.scss";
 import Search from "../../search/Search";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [close, setClose] = useState(true);
@@ -62,8 +63,12 @@ const Header = () => {
             <div className="header__nav__btns-search">
               <IoSearchOutline />
             </div>
-            <BsCart2 />
-            <VscAccount />
+            <NavLink to={"/cart"}>
+              <BsCart2 />
+            </NavLink>
+            <NavLink to={"/admin"}>
+              <VscAccount />
+            </NavLink>
           </div>
         </nav>
       </header>

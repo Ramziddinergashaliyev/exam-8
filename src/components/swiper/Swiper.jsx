@@ -6,7 +6,7 @@ import "./customer.scss";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation"; // Import navigation styles
+import "swiper/css/navigation";
 
 import { Pagination, Navigation } from "swiper/modules";
 
