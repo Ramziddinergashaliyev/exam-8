@@ -1,0 +1,218 @@
+.single {
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  &__left {
+    display: flex;
+    gap: 10px;
+  }
+  &__left__small {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    img {
+      width: 150px;
+      height: 150px;
+      background-color: #f0eeed;
+      border-radius: 10px;
+      border: 1px solid #aaa6;
+    }
+  }
+
+  &__left__large {
+    background-color: #f0eeed;
+    height: 470px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #aaa6;
+  }
+
+  &__right {
+    &__price {
+      font-family: Integral CF;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 48px;
+      text-align: left;
+      color: #000000;
+    }
+
+    &__old {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    &__price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__stars {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0px;
+      svg {
+        font-size: 20px;
+        color: orange;
+      }
+    }
+
+    &__text {
+      font-family: Satoshi;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      text-align: left;
+      color: #00000099;
+      border-bottom: 1px solid #aaa4;
+      padding: 10px 0px 20px;
+    }
+
+    &__colors {
+      padding: 10px 0px;
+      p {
+        font-family: Satoshi;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.6px;
+        text-align: left;
+        color: #00000099;
+        padding-bottom: 10px;
+      }
+    }
+
+    &__color {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      span {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+
+      &-one {
+        background-color: red;
+      }
+
+      &-two {
+        background-color: black;
+      }
+
+      &-three {
+        background-color: coral;
+      }
+    }
+
+    &__size {
+      border-bottom: 1px solid #aaa4;
+      border-top: 1px solid #aaa4;
+      padding: 15px 0px;
+      p {
+        font-family: Satoshi;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.6px;
+        text-align: left;
+        color: #00000099;
+        padding: 10px 0px;
+      }
+      &__btns {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        button {
+          background-color: #f0f0f0;
+          padding: 10px 24px;
+          border: none;
+          border-radius: 20px;
+          font-family: Satoshi;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 21.6px;
+          text-align: left;
+          color: #00000099;
+          transition: 0.7s;
+        }
+        button:hover {
+          background-color: #000000;
+          color: white;
+        }
+      }
+    }
+    &__btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      button {
+        margin-top: 10px;
+        background-color: #000000;
+        color: white;
+        width: 100%;
+        padding: 13px 20px;
+        border-radius: 4px;
+        border: none;
+      }
+      &-heart {
+      }
+    }
+  }
+  &__cards {
+    &__title {
+      font-family: Integral CF;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 57.6px;
+      color: #000000;
+      text-align: center;
+      padding: 10px 0px;
+    }
+  }
+
+  @media (max-width: 910px) {
+    &__top {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 500px) {
+    &__left {
+      flex-direction: column-reverse;
+    }
+    &__left__small {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      img {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        background-color: #f0eeed;
+        border-radius: 10px;
+        border: 1px solid #aaa6;
+      }
+    }
+    &__right__size__btns {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 440px) {
+    &__left__large {
+      background-color: #f0eeed;
+      height: 270px;
+      width: 100%;
+      border-radius: 6px;
+      border: 1px solid #aaa6;
+    }
+    &__left__small {
+      img {
+        height: 100px;
+      }
+    }
+  }
+}

@@ -76,3 +76,48 @@ export const TOP_PRODUCTS = [
     rate: 3,
   },
 ];
+
+export const COMMENT = [
+  {
+    id: 1,
+    name: "Samantha D.",
+    title:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt",
+    desc: "Posted on August 14, 2023",
+  },
+  {
+    id: 2,
+    name: "Alex M.",
+    title:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt",
+    desc: "Posted on August 14, 2023",
+  },
+  {
+    id: 3,
+    name: "Ethan R.",
+    title:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt",
+    desc: "Posted on August 14, 2023",
+  },
+  {
+    id: 4,
+    name: "Olivia P.",
+    title:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt",
+    desc: "Posted on August 14, 2023",
+  },
+  {
+    id: 5,
+    name: "Liam K.",
+    title:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt",
+    desc: "Posted on August 14, 2023",
+  },
+  {
+    id: 6,
+    name: "Ava H.",
+    title:
+      "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. Its become my favorite go-to shirt",
+    desc: "Posted on August 14, 2023",
+  },
+];

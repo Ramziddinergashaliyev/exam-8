@@ -1,5 +1,6 @@
 import React from "react";
 import "./hero.scss";
+import Leazy from "../leazy/Leazy";
 
 const Hero = () => {
   return (

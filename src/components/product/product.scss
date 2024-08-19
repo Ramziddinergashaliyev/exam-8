@@ -3,6 +3,9 @@
     overflow: hidden;
     &__img {
       position: relative;
+      height: 290px;
+      background-color: #f0eeed;
+      border-radius: 10px;
       img {
         width: 100%;
         height: 290px;
@@ -28,6 +31,9 @@
           border: 1px solid #aaa8;
           border-radius: 50%;
           background-color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }

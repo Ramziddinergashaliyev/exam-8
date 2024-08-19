@@ -5,6 +5,7 @@ import { BsCart2 } from "react-icons/bs";
 import { VscAccount } from "react-icons/vsc";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearchOutline } from "react-icons/io5";
+import { IoIosHeartEmpty } from "react-icons/io";
 
 import "./header.scss";
 import Search from "../../search/Search";
@@ -18,7 +19,6 @@ const Header = () => {
       {close ? (
         <div className="header__top">
           <div className="header__top__info container">
-            <div></div>
             <div className="header__top__info__desc">
               <p>
                 Sign up and get 20% off to your first order.{" "}
@@ -45,7 +45,9 @@ const Header = () => {
             >
               <RxHamburgerMenu />
             </button>
-            <img src={logo} alt="" />
+            <NavLink to={"/"}>
+              <img src={logo} alt="" />
+            </NavLink>
           </div>
           <ul className={`header__nav__link ${show ? "header__show" : ""}`}>
             <li onClick={() => setShow(false)} className="header__nav__close">
@@ -63,6 +65,9 @@ const Header = () => {
             <div className="header__nav__btns-search">
               <IoSearchOutline />
             </div>
+            <NavLink to={"/wishlist"}>
+              <IoIosHeartEmpty />
+            </NavLink>
             <NavLink to={"/cart"}>
               <BsCart2 />
             </NavLink>
