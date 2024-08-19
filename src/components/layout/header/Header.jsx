@@ -19,6 +19,7 @@ const Header = () => {
       {close ? (
         <div className="header__top">
           <div className="header__top__info container">
+            <div></div>
             <div className="header__top__info__desc">
               <p>
                 Sign up and get 20% off to your first order.{" "}
@@ -65,8 +66,9 @@ const Header = () => {
             <div className="header__nav__btns-search">
               <IoSearchOutline />
             </div>
-            <NavLink to={"/wishlist"}>
+            <NavLink className={"header__nav__btns__link"} to={"/wishlist"}>
               <IoIosHeartEmpty />
+              {/* <sup>0</sup> */}
             </NavLink>
             <NavLink to={"/cart"}>
               <BsCart2 />
