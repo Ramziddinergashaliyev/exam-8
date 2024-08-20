@@ -4,7 +4,7 @@ import Product from "../product/Product";
 const Products = ({ data }) => {
   return (
     <>
-      {data?.map((product) => (
+      {data?.slice(0, 4)?.map((product) => (
         <Product product={product} key={product?._id} />
       ))}
     </>

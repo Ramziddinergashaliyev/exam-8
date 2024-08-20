@@ -1,0 +1,12 @@
+.admin {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  transition: 0.5s;
+  &__icon {
+    width: 40px;
+  }
+
+  &__close {
+    grid-template-columns: 60px 1fr;
+  }
+}

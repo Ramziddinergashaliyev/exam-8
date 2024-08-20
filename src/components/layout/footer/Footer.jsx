@@ -5,8 +5,13 @@ import logo from "../../../assets/images/logo.png";
 import { FaFacebookF, FaGithub } from "react-icons/fa";
 import { FaTwitter, FaInstagram } from "react-icons/fa6";
 import "./footer.scss";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  let { pathname } = useLocation();
+  if (pathname.includes("admin") || pathname.includes("login")) {
+    return <></>;
+  }
   return (
     <footer className="footer">
       <div className="container">

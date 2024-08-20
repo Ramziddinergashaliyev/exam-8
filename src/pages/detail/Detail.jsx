@@ -19,7 +19,7 @@ const Detail = () => {
   console.log(data?.payload);
   useEffect(() => {
     window.scroll(0, 0);
-  }, []);
+  }, [id]);
   return (
     <div className="single container">
       <div className="single__top">

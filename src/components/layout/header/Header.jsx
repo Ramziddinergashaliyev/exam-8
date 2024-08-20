@@ -6,12 +6,17 @@ import { VscAccount } from "react-icons/vsc";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { useLocation } from "react-router-dom";
 
 import "./header.scss";
 import Search from "../../search/Search";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  let { pathname } = useLocation();
+  if (pathname.includes("admin") || pathname.includes("login")) {
+    return <></>;
+  }
   const [close, setClose] = useState(true);
   const [show, setShow] = useState(false);
   return (
@@ -54,7 +59,9 @@ const Header = () => {
             <li onClick={() => setShow(false)} className="header__nav__close">
               <IoCloseSharp />
             </li>
-            <li className="header__nav__item">Shop</li>
+            <li className="header__nav__item">
+              <NavLink to={"/shop"}>Shop</NavLink>
+            </li>
             <li className="header__nav__item">On Sale</li>
             <li className="header__nav__item">New Arrivals</li>
             <li className="header__nav__item">Brands</li>
@@ -73,7 +80,7 @@ const Header = () => {
             <NavLink to={"/cart"}>
               <BsCart2 />
             </NavLink>
-            <NavLink to={"/admin"}>
+            <NavLink to={"/login"}>
               <VscAccount />
             </NavLink>
           </div>
