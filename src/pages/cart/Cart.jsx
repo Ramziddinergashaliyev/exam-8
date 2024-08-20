@@ -43,14 +43,14 @@ const Cart = () => {
         <div className="cart__items__left-card-info__price">
           <p>${el?.price}</p>
           <div className="cart__items__left-card-info-btns">
-            <button onClick={() => dispatch(incrementCart(el))}>+</button>
-            <button>{el?.quantity}</button>
             <button
               disabled={el?.quantity <= 0}
               onClick={() => dispatch(decrementCart(el))}
             >
               -
             </button>
+            <button>{el?.quantity}</button>
+            <button onClick={() => dispatch(incrementCart(el))}>+</button>
           </div>
         </div>
       </div>

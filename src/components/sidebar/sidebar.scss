@@ -18,8 +18,14 @@
     padding: 15px 10px;
     h1 {
       color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
-    button {
+    &__btn {
+      display: grid;
+      place-items: center;
       min-width: 40px;
       min-height: 40px;
       border-radius: 50%;

@@ -7,6 +7,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./header.scss";
 import Search from "../../search/Search";
@@ -14,11 +15,19 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   let { pathname } = useLocation();
-  if (pathname.includes("admin") || pathname.includes("login")) {
+  if (
+    pathname.includes("admin") ||
+    pathname.includes("login") ||
+    pathname.includes("register")
+  ) {
     return <></>;
   }
   const [close, setClose] = useState(true);
   const [show, setShow] = useState(false);
+
+  const wishlist = useSelector((state) => state.wishlist.value);
+  const cart = useSelector((state) => state.cart.value);
+
   return (
     <>
       {close ? (
@@ -74,11 +83,16 @@ const Header = () => {
               <IoSearchOutline />
             </div>
             <NavLink className={"header__nav__btns__link"} to={"/wishlist"}>
-              <IoIosHeartEmpty />
-              {/* <sup>0</sup> */}
+              <div className={"header__nav__btns__links"}>
+                <IoIosHeartEmpty />
+                <sup>{wishlist?.length}</sup>
+              </div>
             </NavLink>
             <NavLink to={"/cart"}>
-              <BsCart2 />
+              <div className={"header__nav__btns__links"}>
+                <BsCart2 />
+                <sup>{cart?.length}</sup>
+              </div>
             </NavLink>
             <NavLink to={"/login"}>
               <VscAccount />

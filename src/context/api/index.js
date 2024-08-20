@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
-// import { logout } from '../slices/authSlice';
+import { logout } from "../slices/authSlice";
 
 const baseQuery = async (args, api, extraOptions) => {
   const { dispatch } = api;
@@ -20,7 +20,7 @@ const baseQuery = async (args, api, extraOptions) => {
     const { status } = result.error;
     if (status === 401 || status === 403) {
       console.error("Unauthorized access - Redirecting to login...");
-      // dispatch(logout())
+      dispatch(logout());
     }
   }
   return result;

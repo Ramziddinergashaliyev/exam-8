@@ -83,11 +83,17 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    input {
+      width: 20px;
+      height: 15px;
+      padding-bottom: 10px;
+    }
 
     label {
       margin-left: 8px;
       font-size: 16px;
       color: #555;
+      margin-top: 6px;
     }
   }
 

@@ -12,8 +12,13 @@ import img7 from "../../assets/icons/Vector.svg";
 import out from "../../assets/icons/out.svg";
 import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { RiProductHuntLine } from "react-icons/ri";
+import { useGetProfileQuery } from "../../context/api/userApi";
+import { logout } from "../../context/slices/authSlice";
+
 function Sidebar() {
   const navigate = useNavigate();
+  const { data } = useGetProfileQuery();
+  console.log();
 
   const handleLogout = () => {
     localStorage.clear();
@@ -22,8 +27,10 @@ function Sidebar() {
   return (
     <section className="sidebar">
       <div className="sidebar__top">
-        <button>R</button>
-        <h1>Ramziddin</h1>
+        <div className="sidebar__top__btn">
+          {data?.payload?.fname?.slice(0, 1)}
+        </div>
+        <h1>{data?.payload?.fname}</h1>
       </div>
       <ul className="sidebar__item">
         <div>
