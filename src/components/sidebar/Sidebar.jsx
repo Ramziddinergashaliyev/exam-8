@@ -14,15 +14,17 @@ import { MdOutlineCreateNewFolder } from "react-icons/md";
 import { RiProductHuntLine } from "react-icons/ri";
 import { useGetProfileQuery } from "../../context/api/userApi";
 import { logout } from "../../context/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 function Sidebar() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data } = useGetProfileQuery();
   console.log();
 
   const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
+    dispatch(logout());
+    navigate("/");
   };
   return (
     <section className="sidebar">

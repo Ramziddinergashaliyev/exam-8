@@ -6,7 +6,7 @@ import { useSignInMutation } from "../../context/api/userApi";
 import { setToken } from "../../context/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "antd";
+import { notification } from "antd"; // Import notification from Ant Design
 
 const initialState = {
   username: "",
@@ -17,10 +17,10 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [value, setValue] = useState(initialState);
-  const [login, { data, isSuccess }] = useSignInMutation();
+  const [login, { data, isSuccess, error }] = useSignInMutation();
 
   const handleChange = (e) => {
-    let { value, name } = e.target;
+    const { value, name } = e.target;
     setValue((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -28,9 +28,23 @@ const Login = () => {
     if (isSuccess) {
       dispatch(setToken(data.payload.token));
       navigate("/admin/createProduct");
-      <Alert message="Success Tips" type="success" showIcon />;
+      notification.success({
+        message: "Login Successful",
+        duration: 3,
+        placement: "topRight",
+      });
     }
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (error) {
+      notification.error({
+        message: "username or password in correct",
+        duration: 3,
+        placement: "topRight",
+      });
+    }
+  }, [error]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

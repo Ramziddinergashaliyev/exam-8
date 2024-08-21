@@ -88,7 +88,9 @@ const Register = () => {
             placeholder="Enter lname"
           />
         </div>
-        <button type="submit">Register</button>
+        <button className="register-btn" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
