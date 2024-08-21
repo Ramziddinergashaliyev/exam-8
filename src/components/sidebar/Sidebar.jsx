@@ -48,6 +48,18 @@ function Sidebar() {
               manage products
             </NavLink>
           </li>
+          <li className="sidebar__list">
+            <NavLink to={"createCategory"} className={"sidebar__left__text"}>
+              <RiProductHuntLine />
+              create Category
+            </NavLink>
+          </li>
+          <li className="sidebar__list">
+            <NavLink to={"manageCategory"} className={"sidebar__left__text"}>
+              <RiProductHuntLine />
+              manage Category
+            </NavLink>
+          </li>
         </div>
         <div className="sidebar__btns">
           <div className="sidebar__btns__title" onClick={handleLogout}>

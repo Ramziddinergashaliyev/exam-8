@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import ManageProduct from "./pages/admin/manageProduct/ManageProduct";
 import CreateProduct from "./pages/admin/createProduct/CreateProduct";
+import ManageCategory from "./pages/admin/manageCategory/ManageCategory";
+import CreateCategory from "./pages/admin/createCategory/CreateCategory";
 import Login from "./pages/login/Login";
 import Auth from "./pages/auth/Auth";
 import Register from "./pages/register/Register";
@@ -29,6 +31,8 @@ const App = () => {
             <Route path="admin" element={<Admin />}>
               <Route path="manageProduct" element={<ManageProduct />} />
               <Route path="createProduct" element={<CreateProduct />} />
+              <Route path="manageCategory" element={<ManageCategory />} />
+              <Route path="createCategory" element={<CreateCategory />} />
             </Route>
           </Route>
         </Route>
