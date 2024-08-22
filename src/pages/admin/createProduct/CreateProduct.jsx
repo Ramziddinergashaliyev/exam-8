@@ -12,12 +12,6 @@ const CreateProduct = () => {
   const [newProduct, setNewProduct] = useState({});
   const [create, { data, isLoading, isSuccess }] = useCreateProductMutation();
   const { data: categories } = useGetCategorysQuery();
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct({ ...newProduct, [name]: value });
-  };
 
   const handleFileChange = ({ fileList }) => {
     setFileList(fileList);
