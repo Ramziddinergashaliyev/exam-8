@@ -15,6 +15,10 @@ import { RiProductHuntLine } from "react-icons/ri";
 import { useGetProfileQuery } from "../../context/api/userApi";
 import { logout } from "../../context/slices/authSlice";
 import { useDispatch } from "react-redux";
+import { IoHomeOutline } from "react-icons/io5";
+import { MdManageHistory } from "react-icons/md";
+import { GoDuplicate } from "react-icons/go";
+import { HiOutlineDocumentDuplicate } from "react-icons/hi2";
 
 function Sidebar() {
   const dispatch = useDispatch();
@@ -44,24 +48,28 @@ function Sidebar() {
           </li>
           <li className="sidebar__list">
             <NavLink to={"manageProduct"} className={"sidebar__left__text"}>
-              <RiProductHuntLine />
+              <MdManageHistory />
               manage products
             </NavLink>
           </li>
           <li className="sidebar__list">
             <NavLink to={"createCategory"} className={"sidebar__left__text"}>
-              <RiProductHuntLine />
+              <GoDuplicate />
               create Category
             </NavLink>
           </li>
           <li className="sidebar__list">
             <NavLink to={"manageCategory"} className={"sidebar__left__text"}>
-              <RiProductHuntLine />
+              <HiOutlineDocumentDuplicate />
               manage Category
             </NavLink>
           </li>
         </div>
         <div className="sidebar__btns">
+          <NavLink to={"/"} className="sidebar__btns__title">
+            <IoHomeOutline />
+            <p>Home</p>
+          </NavLink>
           <div className="sidebar__btns__title" onClick={handleLogout}>
             <img src={out} alt="" />
             <p>Login out</p>

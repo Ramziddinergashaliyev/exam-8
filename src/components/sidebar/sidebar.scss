@@ -94,5 +94,9 @@
     gap: 20px;
     cursor: pointer;
     text-wrap: nowrap;
+    svg {
+      font-size: 22px;
+      color: gray;
+    }
   }
 }

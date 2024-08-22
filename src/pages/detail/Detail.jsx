@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   useGetProductByIdQuery,
   useGetProductsQuery,
@@ -16,6 +16,7 @@ const Detail = () => {
   const { id } = useParams();
   const { data } = useGetProductByIdQuery(id);
   const { data: product } = useGetProductsQuery();
+  const [img, setImg] = useState(0);
   console.log(data?.payload);
   useEffect(() => {
     window.scroll(0, 0);
@@ -25,12 +26,12 @@ const Detail = () => {
       <div className="single__top">
         <div className="single__left">
           <div className="single__left__small">
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
+            {data?.payload?.urls?.map((el, inx) => (
+              <img onClick={() => setImg(inx)} key={el?.id} src={el} alt="" />
+            ))}
           </div>
           <div className="single__left__large">
-            <img src={data?.payload?.urls?.[0]} alt={data?.payload?.title} />
+            <img src={data?.payload?.urls?.[img]} alt={data?.payload?.title} />
           </div>
         </div>
         <div className="single__right">

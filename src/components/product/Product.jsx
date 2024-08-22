@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./product.scss";
 import { GoStarFill } from "react-icons/go";
@@ -9,11 +9,26 @@ import { toggleHeart } from "../../context/slices/wishlistSlice";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { addToCart } from "../../context/slices/cartSlice";
 import { BsFillCartFill } from "react-icons/bs";
+import { AiOutlineDelete } from "react-icons/ai";
+import { CiEdit } from "react-icons/ci";
+import { useDeleteProductMutation } from "../../context/api/productApi";
+import Module from "../module/Module";
+import EditProduct from "../editProduct/EditProduct";
 
-const Product = ({ product }) => {
+const Product = ({ product, isTrue }) => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.wishlist.value);
   const cart = useSelector((state) => state.cart.value);
+  const [deleteProduct] = useDeleteProductMutation();
+  const [module, setModule] = useState(false);
+
+  const handleDelete = (id) => {
+    let productDelete = window.confirm("product o'chirilsinmi");
+    if (productDelete) {
+      deleteProduct(id);
+    }
+  };
+
   return (
     <div className="products__card">
       <div className="products__card__img">
@@ -53,6 +68,25 @@ const Product = ({ product }) => {
           <p className="products__card__price-new">${product?.price}</p>
           <p className="products__card__price-old">${product?.oldPrice}</p>
         </div>
+        {isTrue ? (
+          <div className="products__card__btns">
+            <button onClick={() => handleDelete(product?._id)}>
+              <AiOutlineDelete />
+            </button>
+            <button onClick={() => setModule(true)}>
+              <CiEdit />
+            </button>
+          </div>
+        ) : (
+          <></>
+        )}
+        {module ? (
+          <Module width={"600px"} close={setModule} bg={"#aaa8"}>
+            <EditProduct />
+          </Module>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

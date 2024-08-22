@@ -5,6 +5,8 @@ const initialState = {
   title: "",
 };
 
+import "./createCategry.scss";
+
 const CreateCategory = () => {
   const [create, setCreate] = useState(initialState);
   const [createCategory] = useCreateCategoryMutation();
@@ -20,9 +22,16 @@ const CreateCategory = () => {
   };
 
   return (
-    <div>
-      <form className="create-category" onSubmit={handleSubmit}>
-        <input value={create.title} onChange={handleChange} type="text" />
+    <div className="category">
+      <h2>Create Category</h2>
+      <form className="category__create" onSubmit={handleSubmit}>
+        <input
+          required
+          placeholder="Enter Title"
+          value={create.title}
+          onChange={handleChange}
+          type="text"
+        />
         <button type="submit">Create</button>
       </form>
     </div>

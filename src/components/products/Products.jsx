@@ -1,11 +1,11 @@
 import React from "react";
 import Product from "../product/Product";
 
-const Products = ({ data }) => {
+const Products = ({ data, isTrue }) => {
   return (
     <>
       {data?.slice(0, 4)?.map((product) => (
-        <Product product={product} key={product?._id} />
+        <Product isTrue={isTrue} product={product} key={product?._id} />
       ))}
     </>
   );

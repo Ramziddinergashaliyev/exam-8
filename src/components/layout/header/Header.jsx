@@ -14,14 +14,8 @@ import Search from "../../search/Search";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  let { pathname } = useLocation();
-  if (
-    pathname.includes("admin") ||
-    pathname.includes("login") ||
-    pathname.includes("register")
-  ) {
-    return <></>;
-  }
+  let user = useSelector((state) => state.auth.token);
+
   const [close, setClose] = useState(true);
   const [show, setShow] = useState(false);
 
@@ -97,7 +91,7 @@ const Header = () => {
                 <sup>{cart?.length}</sup>
               </div>
             </NavLink>
-            <NavLink to={"/login"}>
+            <NavLink to={user ? "/admin/manageProduct" : "/login"}>
               <VscAccount />
             </NavLink>
           </div>

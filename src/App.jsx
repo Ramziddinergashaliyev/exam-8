@@ -25,19 +25,19 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/single/:id" element={<Detail />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/new" element={<NewArrivals />} />
           <Route path="/brands" element={<Brands />} />
-          <Route path="/" element={<Auth />}>
-            <Route path="admin" element={<Admin />}>
-              <Route path="manageProduct" element={<ManageProduct />} />
-              <Route path="createProduct" element={<CreateProduct />} />
-              <Route path="manageCategory" element={<ManageCategory />} />
-              <Route path="createCategory" element={<CreateCategory />} />
-            </Route>
+        </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Auth />}>
+          <Route path="admin" element={<Admin />}>
+            <Route path="manageProduct" element={<ManageProduct />} />
+            <Route path="createProduct" element={<CreateProduct />} />
+            <Route path="manageCategory" element={<ManageCategory />} />
+            <Route path="createCategory" element={<CreateCategory />} />
           </Route>
         </Route>
       </Routes>

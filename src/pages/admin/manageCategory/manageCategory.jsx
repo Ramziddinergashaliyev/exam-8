@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { LuFileEdit } from "react-icons/lu";
+import React from "react";
 import { AiOutlineDelete } from "react-icons/ai";
+import { CiEdit } from "react-icons/ci";
 import "./manageCategory.scss";
 import {
   useDeleteCategoryMutation,
@@ -10,25 +10,31 @@ import {
 const ManageCategory = () => {
   const { data } = useGetCategorysQuery();
   const [deleteCategory] = useDeleteCategoryMutation();
-  console.log(data);
+
+  const handleDelete = (id) => {
+    const categoryDelete = window.confirm("Category O'chirilsinmi");
+    if (categoryDelete) {
+      deleteCategory(id);
+    }
+  };
 
   const categoryData = data?.payload?.map((el) => (
-    <div key={el?.id} className="category__card">
+    <div key={el?.id} className="categoryManage__card">
       <h4>{el?.title}</h4>
-      <div className="category__card-btns">
-        <button onClick={() => deleteCategory(el?._id)}>
+      <div className="categoryManage__card-btns">
+        <button onClick={() => handleDelete(el?._id)}>
           <AiOutlineDelete />
         </button>
-        <button className="category__card-edit">
-          <LuFileEdit />
+        <button className="categoryManage__card-edit">
+          <CiEdit />
         </button>
       </div>
     </div>
   ));
 
   return (
-    <div className="category">
-      <div className="category__cards">{categoryData}</div>
+    <div className="categoryManage">
+      <div className="categoryManage__cards">{categoryData}</div>
     </div>
   );
 };
