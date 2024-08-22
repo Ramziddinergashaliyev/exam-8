@@ -21,7 +21,7 @@ const CreateCategory = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="create-category" onSubmit={handleSubmit}>
         <input value={create.title} onChange={handleChange} type="text" />
         <button type="submit">Create</button>
       </form>

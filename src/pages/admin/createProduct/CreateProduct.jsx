@@ -121,7 +121,7 @@ const CreateProduct = () => {
         >
           <Select placeholder="Select a category" className="select">
             {categories?.payload?.map((category) => (
-              <Select.Option key={category.id} value={category?._id}>
+              <Select.Option key={category._id} value={category?._id}>
                 {category.title}
               </Select.Option>
             ))}
