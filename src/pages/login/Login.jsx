@@ -53,9 +53,9 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="login__img">
+      {/* <div className="login__img">
         <img src={img} alt="Background" />
-      </div>
+      </div> */}
       <div className="login__form">
         <form onSubmit={handleSubmit} className="login__form-card">
           <h2 className="login__title">Login</h2>

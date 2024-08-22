@@ -8,6 +8,8 @@ import CreateCategory from "./pages/admin/createCategory/CreateCategory";
 import Login from "./pages/login/Login";
 import Auth from "./pages/auth/Auth";
 import Register from "./pages/register/Register";
+import NewArrivals from "./pages/new-arrivals/NewArrivals";
+import Brands from "./pages/brands/Brands";
 const Shop = lazy(() => import("./pages/shop/Shop"));
 const Home = lazy(() => import("./pages/home/Home"));
 const Cart = lazy(() => import("./pages/cart/Cart"));
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/single/:id" element={<Detail />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/new" element={<NewArrivals />} />
+          <Route path="/brands" element={<Brands />} />
           <Route path="/" element={<Auth />}>
             <Route path="admin" element={<Admin />}>
               <Route path="manageProduct" element={<ManageProduct />} />

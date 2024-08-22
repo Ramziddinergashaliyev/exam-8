@@ -6,8 +6,8 @@ import "./emptyWishlist.scss";
 const EmptyWishlist = () => {
   return (
     <div className="empty__wishlist">
-      <p>Sevimlilar topilmadi</p>
       <img src={img} alt="" />
+      <p>Sevimlilar topilmadi</p>
       <NavLink to={"/"}>
         <button>Home</button>
       </NavLink>

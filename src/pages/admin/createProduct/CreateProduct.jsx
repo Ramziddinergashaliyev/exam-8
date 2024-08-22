@@ -1,84 +1,160 @@
-import React, { useState } from "react";
-import "./createProduct.scss";
+import React, { useState, useEffect } from "react";
+import { Button, Form, Input, Upload, Select } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import { useCreateProductMutation } from "../../../context/api/productApi";
+import { useGetCategorysQuery } from "../../../context/api/categoryApi";
 
-const initialState = {
-  title: "",
-  price: "",
-  units: "",
-  desc: "",
-  urls: null,
-};
+import "./createProduct.scss";
+import { useNavigate } from "react-router-dom";
 
 const CreateProduct = () => {
-  const [formData, setFormData] = useState(initialState);
+  const [fileList, setFileList] = useState([]);
+  const [newProduct, setNewProduct] = useState({});
+  const [create, { data, isLoading, isSuccess }] = useCreateProductMutation();
+  const { data: categories } = useGetCategorysQuery();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: files ? files[0] : value,
-    }));
+    const { name, value } = e.target;
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  const handleFileChange = ({ fileList }) => {
+    setFileList(fileList);
+  };
+
+  const handleSubmit = async (values) => {
+    const formData = new FormData();
+
+    formData.append("title", values.title);
+    formData.append("price", values.price);
+    formData.append("desc", values.desc);
+    formData.append("units", values.units);
+    formData.append("categoryId", values.categoryId);
+    fileList.forEach((file) => formData.append("photos", file.originFileObj));
+
+    await create(formData).unwrap();
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
-    <div className="form">
-      <h3>Create Product</h3>
-      <form className="form__card" onSubmit={handleSubmit}>
-        <div className="form__card-group">
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            name="title"
-            placeholder="Title"
-            type="text"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form__card-group">
-          <label htmlFor="price">Price</label>
-          <input
-            id="price"
-            name="price"
-            placeholder="Price"
-            type="text"
-            value={formData.price}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form__card-group">
-          <label htmlFor="units">Units</label>
-          <input
-            id="units"
-            name="units"
-            placeholder="Units"
-            type="text"
-            value={formData.units}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form__card-group">
-          <label htmlFor="desc">Description</label>
-          <input
-            id="desc"
-            name="desc"
-            placeholder="Description"
-            type="text"
-            value={formData.desc}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form__card-group">
-          <label htmlFor="urls">Image</label>
-          <input id="urls" name="urls" type="file" onChange={handleChange} />
-        </div>
-        <button type="submit">Create</button>
-      </form>
+    <div className="form-category">
+      <h2>Create Product</h2>
+      <Form
+        name="basic"
+        layout="vertical"
+        className="w-96 max-sm:w-400px"
+        labelCol={{
+          span: 8,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={handleSubmit}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label="Title"
+          name="title"
+          rules={[
+            {
+              required: true,
+              message: "Please input the title!",
+            },
+          ]}
+        >
+          <Input placeholder="Enter title" />
+        </Form.Item>
+
+        <Form.Item
+          label="Description"
+          name="desc"
+          rules={[
+            {
+              required: true,
+              message: "Please input the description!",
+            },
+          ]}
+        >
+          <Input placeholder="Enter description" />
+        </Form.Item>
+
+        <Form.Item
+          label="Price"
+          name="price"
+          rules={[
+            {
+              required: true,
+              message: "Please input the price!",
+            },
+          ]}
+        >
+          <Input placeholder="Enter price" />
+        </Form.Item>
+
+        <Form.Item
+          label="Units"
+          name="units"
+          rules={[
+            {
+              required: true,
+              message: "Please input the units!",
+            },
+          ]}
+        >
+          <Input placeholder="Enter units" />
+        </Form.Item>
+
+        <Form.Item
+          label="Category"
+          name="categoryId"
+          rules={[
+            {
+              required: true,
+              message: "Please select a category!",
+            },
+          ]}
+        >
+          <Select placeholder="Select a category" className="select">
+            {categories?.payload?.map((category) => (
+              <Select.Option key={category.id} value={category?._id}>
+                {category.title}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
+
+        <Form.Item>
+          <Upload
+            action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+            listType="picture"
+            multiple
+            beforeUpload={() => false}
+            onChange={handleFileChange}
+            fileList={fileList}
+            defaultFileList={fileList}
+          >
+            <Button type="dark" icon={<UploadOutlined />}>
+              Upload
+            </Button>
+          </Upload>
+        </Form.Item>
+
+        <Form.Item>
+          <Button
+            loading={isLoading}
+            className="w-full"
+            type="dark"
+            htmlType="submit"
+          >
+            {isLoading ? "Loading..." : "Create"}
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 };

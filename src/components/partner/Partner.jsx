@@ -10,11 +10,27 @@ const Partner = () => {
   return (
     <div className="partner">
       <div className="partner__logo container">
-        <img src={logo1} alt="" />
-        <img src={logo2} alt="" />
-        <img src={logo3} alt="" />
-        <img src={logo4} alt="" />
-        <img src={logo5} alt="" />
+        <div>
+          <img src={logo1} alt="" />
+          <img src={logo2} alt="" />
+          <img src={logo3} alt="" />
+          <img src={logo4} alt="" />
+          <img src={logo5} alt="" />
+        </div>
+        <div>
+          <img src={logo1} alt="" />
+          <img src={logo2} alt="" />
+          <img src={logo3} alt="" />
+          <img src={logo4} alt="" />
+          <img src={logo5} alt="" />
+        </div>
+        <div>
+          <img src={logo1} alt="" />
+          <img src={logo2} alt="" />
+          <img src={logo3} alt="" />
+          <img src={logo4} alt="" />
+          <img src={logo5} alt="" />
+        </div>
       </div>
     </div>
   );

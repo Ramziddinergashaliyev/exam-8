@@ -1,0 +1,40 @@
+.category {
+  padding: 20px;
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+
+  &__card {
+    box-shadow: 1px 1px 10px #aaa4;
+    padding: 20px;
+    border-radius: 10px;
+
+    h4 {
+      font-size: 18px;
+      font-weight: 300;
+    }
+    &-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 20px 0px;
+      button {
+        color: red;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border-radius: 5px;
+        background-color: #aaa4;
+        border: 1px solid transparent;
+        svg {
+          font-size: 18px;
+        }
+      }
+    }
+    &-edit {
+      color: blue !important;
+    }
+  }
+}

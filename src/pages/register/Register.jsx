@@ -34,7 +34,7 @@ const Register = () => {
       </p>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="fname">Title</label>
+          <label htmlFor="fname">First name</label>
           <input
             id="fname"
             name="fname"
@@ -45,7 +45,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Price</label>
+          <label htmlFor="phone">phone</label>
           <input
             id="phone"
             name="phone"
@@ -56,7 +56,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="units">Units</label>
+          <label htmlFor="units">username</label>
           <input
             id="username"
             name="username"
@@ -67,7 +67,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Description</label>
+          <label htmlFor="password">password</label>
           <input
             id="password"
             name="password"
@@ -78,7 +78,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lname">URLs</label>
+          <label htmlFor="lname">Last name</label>
           <input
             id="lname"
             name="lname"

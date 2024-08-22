@@ -1,11 +1,142 @@
 .shop {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 350px 1fr;
   grid-gap: 20px;
   &__left {
     border: 1px solid #aaa3;
     border-radius: 10px;
     padding: 10px;
+
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #aaa3;
+      padding-bottom: 10px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 0px;
+      cursor: pointer;
+      font-family: Satoshi;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 21.6px;
+      text-align: left;
+      color: #00000099;
+      svg {
+        font-size: 14px;
+      }
+    }
+
+    &-price {
+      border-bottom: 1px solid #aaa3;
+      border-top: 1px solid #aaa3;
+      padding: 20px 0px;
+      h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Satoshi;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 27px;
+        text-align: left;
+        color: #000000;
+        svg {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-colors {
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Satoshi;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 27px;
+        text-align: left;
+        color: #000000;
+        svg {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &-color {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0px 0px 20px 0px;
+      &-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid #aaa5;
+      }
+      &-blue {
+        background-color: blue;
+      }
+      &-red {
+        background-color: red;
+      }
+      &-yellow {
+        background-color: yellow;
+      }
+      &-orange {
+        background-color: orange;
+      }
+      &-aqua {
+        background-color: aqua;
+      }
+      &-black {
+        background-color: black;
+      }
+      &-grey {
+        background-color: grey;
+      }
+    }
+    &-size {
+      border-top: 1px solid #aaa3;
+
+      padding-top: 10px;
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Satoshi;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 27px;
+        text-align: left;
+        color: #000000;
+        svg {
+          font-size: 15px;
+        }
+      }
+      &-btns {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #aaa3;
+        border: 1px solid #aaa5;
+        border-radius: 20px;
+      }
+      button:hover {
+        background-color: #000000;
+        color: white;
+      }
+    }
   }
 
   &__right {

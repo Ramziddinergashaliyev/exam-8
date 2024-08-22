@@ -71,9 +71,12 @@ const Header = () => {
             <li className="header__nav__item">
               <NavLink to={"/shop"}>Shop</NavLink>
             </li>
-            <li className="header__nav__item">On Sale</li>
-            <li className="header__nav__item">New Arrivals</li>
-            <li className="header__nav__item">Brands</li>
+            <li className="header__nav__item">
+              <NavLink to={"/new"}>New Arrivals</NavLink>
+            </li>
+            <li className="header__nav__item">
+              <NavLink to={"/brands"}>Brands</NavLink>
+            </li>
           </ul>
           <div className="header__nav__form">
             <Search />
