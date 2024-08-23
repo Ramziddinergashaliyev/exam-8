@@ -9,8 +9,8 @@ import Auth from "./pages/auth/Auth";
 import Register from "./pages/register/Register";
 import NewArrivals from "./pages/new-arrivals/NewArrivals";
 import Brands from "./pages/brands/Brands";
-// import ManageCategory from "./pages/admin/manageCategory/ManageCategory";
 const Shop = lazy(() => import("./pages/shop/Shop"));
+const ManageCategory = lazy(() => import("./pages/admin/manageCategory/index"));
 const Home = lazy(() => import("./pages/home/Home"));
 const Cart = lazy(() => import("./pages/cart/Cart"));
 const Admin = lazy(() => import("./pages/admin/Admin"));
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="admin" element={<Admin />}>
             <Route path="manageProduct" element={<ManageProduct />} />
             <Route path="createProduct" element={<CreateProduct />} />
-            {/* <Route path="manageCategory" element={<ManageCategory />} /> */}
+            <Route path="manageCategory" element={<ManageCategory />} />
             <Route path="createCategory" element={<CreateCategory />} />
           </Route>
         </Route>
