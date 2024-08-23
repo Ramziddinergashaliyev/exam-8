@@ -5,7 +5,6 @@ import { useCreateProductMutation } from "../../../context/api/productApi";
 import { useGetCategorysQuery } from "../../../context/api/categoryApi";
 
 import "./createProduct.scss";
-import { useNavigate } from "react-router-dom";
 
 const CreateProduct = () => {
   const [fileList, setFileList] = useState([]);
@@ -100,7 +99,11 @@ const CreateProduct = () => {
             },
           ]}
         >
-          <Input placeholder="Enter units" />
+          <Select placeholder="Select a category" className="select">
+            <Select.Option value="dona">dona</Select.Option>
+            <Select.Option value="kg">kg</Select.Option>
+            <Select.Option value="litr">litr</Select.Option>
+          </Select>
         </Form.Item>
 
         <Form.Item
