@@ -30,23 +30,11 @@ import img25 from "../../assets/brand/logo25.png";
 const Brands = () => {
   return (
     <div className="scroll-box container">
-      <div className="scroll" style={{ "--time": "25s" }}>
+      <div className="scroll">
         <div>
-          <img src={img1} alt="" />
           <img src={img2} alt="" />
-          <img src={img3} alt="" />
-          <img src={img4} alt="" />
-          <img src={img5} alt="" />
-          <img src={img6} alt="" />
           <img src={img7} alt="" />
-          <img src={img8} alt="" />
-          <img src={img9} alt="" />
-          <img src={img10} alt="" />
-          <img src={img11} alt="" />
           <img src={img12} alt="" />
-          <img src={img13} alt="" />
-          <img src={img14} alt="" />
-          <img src={img15} alt="" />
           <img src={img16} alt="" />
           <img src={img17} alt="" />
           <img src={img18} alt="" />

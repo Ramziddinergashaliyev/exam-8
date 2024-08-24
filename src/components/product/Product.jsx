@@ -4,9 +4,9 @@ import "./product.scss";
 import { GoStarFill } from "react-icons/go";
 import { useDispatch, useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
-import { BsCart2 } from "react-icons/bs";
-import { toggleHeart } from "../../context/slices/wishlistSlice";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { toggleHeart } from "../../context/slices/wishlistSlice";
+import { BsCart2 } from "react-icons/bs";
 import { addToCart } from "../../context/slices/cartSlice";
 import { BsFillCartFill } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -66,7 +66,11 @@ const Product = ({ product, isTrue }) => {
         </div>
         <div className="products__card__price">
           <p className="products__card__price-new">${product?.price}</p>
-          <p className="products__card__price-old">${product?.oldPrice}</p>
+          {product?.oldPrice < product?.price ? (
+            <p className="products__card__price-old">${product?.oldPrice}</p>
+          ) : (
+            ""
+          )}
         </div>
         {isTrue ? (
           <div className="products__card__btns">

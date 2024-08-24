@@ -4,27 +4,59 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-start;
   gap: 40px;
+
+  &__card {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    grid-gap: 20px;
+  }
+
+  &__card-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    img {
+      width: 100%;
+      height: 120px;
+      border-radius: 10px;
+    }
+  }
+
   &__img {
     width: 100%;
-    height: 400px;
+    height: 500px;
+    border-radius: 10px;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    &-btns {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
   }
 
   &__title {
-    width: 90%;
+    width: 100%;
     height: 46px;
     margin-top: 10px;
     text-align: center;
+    border-radius: 4px;
+    &-four {
+      height: 46px;
+      margin-top: 10px;
+      text-align: center;
+      width: 40%;
+    }
   }
 }
 
 .bg__anim {
-  background: linear-gradient(90deg, #ddd, #eee, #ddd);
+  background: linear-gradient(90deg, #eee, #ddd, #eee);
   background-size: 200%;
   animation: loadingSingle 1s linear 0s infinite;
 }

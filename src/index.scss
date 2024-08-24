@@ -37,19 +37,13 @@ button {
 }
 
 .view-all__btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 16px;
-  font-weight: 500;
-  line-height: 21.6px;
-  padding: 15px 80px;
+  padding: 15px 10px;
   border-radius: 60px;
   border: 1px solid #ddd;
   margin: 50px auto;
-  position: relative;
-  overflow: hidden;
-  color: #000;
-  @media (max-width: 600px) {
-    margin: 30px auto;
-    padding: 8px 36px;
-  }
+  width: 200px !important;
 }

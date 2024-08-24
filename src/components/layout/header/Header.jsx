@@ -66,9 +66,6 @@ const Header = () => {
               <NavLink to={"/shop"}>Shop</NavLink>
             </li>
             <li className="header__nav__item">
-              <NavLink to={"/new"}>New Arrivals</NavLink>
-            </li>
-            <li className="header__nav__item">
               <NavLink to={"/brands"}>Brands</NavLink>
             </li>
           </ul>

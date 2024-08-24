@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
@@ -10,18 +10,26 @@ import {
   removeFromCart,
 } from "../../context/slices/cartSlice";
 import CartEmpty from "../../components/cart-Empty/CartEmpty";
+import Module from "../../components/module/Module";
+import Payme from "../../components/payme/Payme";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.value);
   const dispatch = useDispatch();
-  console.log(cart);
+  const [payme, setPayme] = useState(false);
+
+  const subtotal = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
 
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
   const cartData = cart?.map((el) => (
-    <div className="cart__items__left-card">
+    <div className="cart__items__left-card" key={el._id}>
       <div className="cart__items__left-card-img">
         <img src={el?.urls?.[0]} alt="" />
       </div>
@@ -44,7 +52,7 @@ const Cart = () => {
           <p>${el?.price}</p>
           <div className="cart__items__left-card-info-btns">
             <button
-              disabled={el?.quantity <= 0}
+              disabled={el?.quantity <= 1}
               onClick={() => dispatch(decrementCart(el))}
             >
               -
@@ -59,6 +67,13 @@ const Cart = () => {
 
   return (
     <>
+      {payme ? (
+        <Module width={"800px"} close={setPayme} bg={"#aaa9"}>
+          <Payme setPayme={setPayme} cartData={cart} total={subtotal} />
+        </Module>
+      ) : (
+        <></>
+      )}
       {cart.length > 0 ? (
         <div className="cart container">
           <h2>Your cart</h2>
@@ -68,11 +83,13 @@ const Cart = () => {
               <h2>Order Summary</h2>
               <div className="cart__items__right__items">
                 <p>Subtotal</p>
-                <span>$565</span>
+                <span>
+                  <p>${subtotal.toFixed(2)}</p>
+                </span>
               </div>
               <div className="cart__items__right__items">
                 <p>Discount (-20%)</p>
-                <span>$113</span>
+                <span>${subtotal * 0.2}</span>
               </div>
               <div className="cart__items__right__items">
                 <p>Delivery Fee</p>
@@ -80,16 +97,19 @@ const Cart = () => {
               </div>
               <div className="cart__items__right__items">
                 <p>Total</p>
-                <span>$467</span>
+                <span>${(subtotal + 15 - subtotal * 0.2).toFixed(2)}</span>{" "}
               </div>
               <div className="cart__items__right__items-form">
                 <input placeholder="Add promo code" type="text" />
                 <button>Apply</button>
               </div>
-              <button className="cart__items__right__btns">
+              <NavLink
+                onClick={() => setPayme(true)}
+                className="cart__items__right__btns"
+              >
                 Go to Checkout
                 <FaArrowRight />
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>

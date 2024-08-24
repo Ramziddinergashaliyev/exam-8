@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./shop.scss";
 import { useGetProductsQuery } from "../../context/api/productApi";
 import Products from "../../components/products/Products";
 import { TbFilters } from "react-icons/tb";
 import { FaChevronRight } from "react-icons/fa6";
+import { Slider, Switch } from "antd";
+import Typography from "@mui/material/Typography";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 const Shop = () => {
-  const { data } = useGetProductsQuery();
+  let limit = 4;
+  const [page, setPage] = React.useState(1);
+  const { data } = useGetProductsQuery({ limit, skip: page });
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  let totalCount = Math.ceil(data?.total / limit);
+
+  console.log(totalCount);
+
   return (
     <div className="shop container">
       <div className="shop__left">
@@ -41,6 +59,7 @@ const Shop = () => {
             Price
             <FaChevronRight />
           </h3>
+          <Slider range defaultValue={[20, 50]} />
         </div>
         <div className="shop__left-colors">
           <h2>
@@ -81,6 +100,10 @@ const Shop = () => {
         <div className="shop__right-card">
           <Products data={data?.payload} />
         </div>
+        <Stack spacing={2}>
+          <Typography>Page: {page}</Typography>
+          <Pagination count={totalCount} page={page} onChange={handleChange} />
+        </Stack>
       </div>
     </div>
   );

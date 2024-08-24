@@ -1,14 +1,20 @@
 import React, { Fragment, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import ManageProduct from "./pages/admin/manageProduct/ManageProduct";
-import CreateProduct from "./pages/admin/createProduct/CreateProduct";
-import CreateCategory from "./pages/admin/createCategory/CreateCategory";
-import Login from "./pages/login/Login";
-import Auth from "./pages/auth/Auth";
-import Register from "./pages/register/Register";
-import NewArrivals from "./pages/new-arrivals/NewArrivals";
-import Brands from "./pages/brands/Brands";
+import Checkout from "./pages/checkout/Checkout";
+const ManageProduct = lazy(() =>
+  import("./pages/admin/manageProduct/ManageProduct")
+);
+const CreateProduct = lazy(() =>
+  import("./pages/admin/createProduct/CreateProduct")
+);
+const CreateCategory = lazy(() =>
+  import("./pages/admin/createCategory/CreateCategory")
+);
+const Auth = lazy(() => import("./pages/auth/Auth"));
+const Login = lazy(() => import("./pages/login/Login"));
+const Register = lazy(() => import("./pages/register/Register"));
+const Brands = lazy(() => import("./pages/brands/Brands"));
 const Shop = lazy(() => import("./pages/shop/Shop"));
 const ManageCategory = lazy(() => import("./pages/admin/manageCategory/index"));
 const Home = lazy(() => import("./pages/home/Home"));
@@ -28,8 +34,8 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/single/:id" element={<Detail />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/new" element={<NewArrivals />} />
           <Route path="/brands" element={<Brands />} />
+          <Route path="/payme" element={<Checkout />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Auth />}>

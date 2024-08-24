@@ -1,7 +1,8 @@
 .shop {
   display: grid;
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 300px 1fr;
   grid-gap: 20px;
+  align-items: flex-start;
   &__left {
     border: 1px solid #aaa3;
     border-radius: 10px;
@@ -63,6 +64,7 @@
         line-height: 27px;
         text-align: left;
         color: #000000;
+        padding-top: 10px;
         svg {
           font-size: 16px;
         }
@@ -74,9 +76,10 @@
       flex-wrap: wrap;
       gap: 20px;
       padding: 0px 0px 20px 0px;
+      margin-top: 20px;
       &-item {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         border: 1px solid #aaa5;
       }
@@ -104,7 +107,6 @@
     }
     &-size {
       border-top: 1px solid #aaa3;
-
       padding-top: 10px;
       h2 {
         display: flex;
@@ -116,6 +118,7 @@
         line-height: 27px;
         text-align: left;
         color: #000000;
+        padding: 10px 0px;
         svg {
           font-size: 15px;
         }

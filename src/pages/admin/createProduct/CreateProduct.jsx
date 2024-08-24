@@ -21,6 +21,7 @@ const CreateProduct = () => {
 
     formData.append("title", values.title);
     formData.append("price", values.price);
+    formData.append("oldPrice", values.oldPrice);
     formData.append("desc", values.desc);
     formData.append("units", values.units);
     formData.append("categoryId", values.categoryId);
@@ -87,6 +88,19 @@ const CreateProduct = () => {
           ]}
         >
           <Input placeholder="Enter price" />
+        </Form.Item>
+
+        <Form.Item
+          label="oldPrice"
+          name="oldPrice"
+          rules={[
+            {
+              required: true,
+              message: "Please input the oldPrice!",
+            },
+          ]}
+        >
+          <Input placeholder="Enter oldPrice" />
         </Form.Item>
 
         <Form.Item

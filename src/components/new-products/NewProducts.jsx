@@ -4,6 +4,7 @@ import "./newProducts.scss";
 import Products from "../products/Products";
 import { useGetProductsQuery } from "../../context/api/productApi";
 import Loading from "../loading/Loading";
+import { NavLink } from "react-router-dom";
 
 const NewProducts = () => {
   const { data } = useGetProductsQuery({ limit: 4 });
@@ -20,7 +21,9 @@ const NewProducts = () => {
           ) : (
             <Loading />
           )}
-          <button className="view-all__btn">View All</button>
+          <NavLink to={"/shop"} className="view-all__btn">
+            View All
+          </NavLink>
         </div>
       </div>
     </section>
