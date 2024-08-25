@@ -7,4 +7,20 @@
     height: 80px;
     object-fit: contain;
   }
+
+  @media (max-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  @media (max-width: 680px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  @media (max-width: 460px) {
+    img {
+      width: 100px;
+      height: 80px;
+      object-fit: contain;
+    }
+  }
 }

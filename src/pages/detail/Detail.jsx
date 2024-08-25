@@ -58,10 +58,10 @@ const Detail = () => {
             </div>
             <div className="single__right__price">
               <h1 className="single__right__price">${data?.payload?.price}</h1>
-              {data?.payload?.oldPrice < data?.payload?.price ? (
-                <h1 className="products__card__price-old">
+              {data?.payload?.oldPrice > data?.payload?.price ? (
+                <h4 className="products__card__price-old">
                   ${data?.payload?.oldPrice}
-                </h1>
+                </h4>
               ) : (
                 ""
               )}

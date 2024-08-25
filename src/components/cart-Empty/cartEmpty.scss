@@ -5,16 +5,18 @@
   justify-content: center;
   gap: 10px;
   img {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
   }
   p {
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
+    color: #00000099;
   }
   button {
     padding: 10px 30px;
     border-radius: 6px;
-    border: 1px solid #aaa6;
+    color: white;
+    background-color: #00000099;
   }
 }

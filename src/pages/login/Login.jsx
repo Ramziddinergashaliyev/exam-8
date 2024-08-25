@@ -6,11 +6,10 @@ import { useSignInMutation } from "../../context/api/userApi";
 import { setToken } from "../../context/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { notification } from "antd"; // Import notification from Ant Design
-
+import { notification } from "antd";
 const initialState = {
-  username: "",
-  password: "",
+  username: "rmz3",
+  password: "12345678",
 };
 
 const Login = () => {
