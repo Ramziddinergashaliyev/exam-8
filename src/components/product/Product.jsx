@@ -65,25 +65,27 @@ const Product = ({ product, isTrue }) => {
           <p>{product?.rating}</p>
         </div>
         <div className="products__card__price">
-          <p className="products__card__price-new">${product?.price}</p>
-          {product?.oldPrice > product?.price ? (
-            <p className="products__card__price-old">${product?.oldPrice}</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <p className="products__card__price-new">${product?.price}</p>
+            {product?.oldPrice > product?.price ? (
+              <p className="products__card__price-old">${product?.oldPrice}</p>
+            ) : (
+              ""
+            )}
+          </div>
+          {isTrue ? (
+            <div className="products__card__btns">
+              <button onClick={() => handleDelete(product?._id)}>
+                <AiOutlineDelete />
+              </button>
+              <button onClick={() => setModule(true)}>
+                <CiEdit />
+              </button>
+            </div>
           ) : (
-            ""
+            <></>
           )}
         </div>
-        {isTrue ? (
-          <div className="products__card__btns">
-            <button onClick={() => handleDelete(product?._id)}>
-              <AiOutlineDelete />
-            </button>
-            <button onClick={() => setModule(true)}>
-              <CiEdit />
-            </button>
-          </div>
-        ) : (
-          <></>
-        )}
         {module ? (
           <Module width={"600px"} close={setModule} bg={"#aaa8"}>
             <EditProduct />

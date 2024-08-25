@@ -6,6 +6,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
 import "./manageProduct.scss";
+import Loading from "../../../components/loading/Loading";
 
 const ManageProduct = () => {
   const [isTrue, setIsTrue] = useState(true);
@@ -14,16 +15,21 @@ const ManageProduct = () => {
   const handleChange = (event, value) => {
     setPage(value);
   };
-  const { data } = useGetProductsQuery({ limit, skip: page });
+  const { data, isLoading } = useGetProductsQuery({ limit, skip: page });
   let totalCount = Math.ceil(data?.total / limit);
 
   return (
     <>
-      <div className="manage__products">
-        <Products isTrue={isTrue} data={data?.payload} />
-      </div>
+      {isLoading ? (
+        <div style={{ padding: "15px" }}>
+          <Loading />
+        </div>
+      ) : (
+        <div className="manage__products">
+          <Products isTrue={isTrue} data={data?.payload} />
+        </div>
+      )}
       <div
-        className="container"
         style={{
           display: "flex",
           justifyContent: "flex-end",
