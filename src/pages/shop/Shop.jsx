@@ -10,7 +10,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
 const Shop = () => {
-  let limit = 4;
+  let limit = 3;
   const [page, setPage] = React.useState(1);
   const { data } = useGetProductsQuery({ limit, skip: page });
   const handleChange = (event, value) => {
@@ -100,10 +100,22 @@ const Shop = () => {
         <div className="shop__right-card">
           <Products data={data?.payload} />
         </div>
-        <Stack spacing={2}>
-          <Typography>Page: {page}</Typography>
-          <Pagination count={totalCount} page={page} onChange={handleChange} />
-        </Stack>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            padding: "10px 0px",
+          }}
+        >
+          <Stack spacing={2}>
+            <Pagination
+              count={totalCount}
+              page={page}
+              onChange={handleChange}
+            />
+          </Stack>
+        </div>
       </div>
     </div>
   );

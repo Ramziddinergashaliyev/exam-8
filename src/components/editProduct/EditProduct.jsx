@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./editProduct.scss";
+import { useGetCategorysQuery } from "../../context/api/categoryApi";
 
 const EditProduct = () => {
+  const { categoryId } = useGetCategorysQuery();
   return (
     <div className="edit__product">
       <h3>Edit Product</h3>
@@ -21,10 +23,6 @@ const EditProduct = () => {
         <div className="edit__product__group">
           <label htmlFor="units">Units</label>
           <input id="units" type="text" placeholder="Product Units" />
-        </div>
-        <div className="edit__product__group">
-          <label htmlFor="urls">Image URLs</label>
-          <input id="urls" type="text" placeholder="Product Image URLs" />
         </div>
         <button className="edit__product__group-btn" type="submit">
           Save Changes

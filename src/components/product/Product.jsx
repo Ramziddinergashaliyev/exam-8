@@ -66,7 +66,7 @@ const Product = ({ product, isTrue }) => {
         </div>
         <div className="products__card__price">
           <p className="products__card__price-new">${product?.price}</p>
-          {product?.oldPrice < product?.price ? (
+          {product?.oldPrice > product?.price ? (
             <p className="products__card__price-old">${product?.oldPrice}</p>
           ) : (
             ""

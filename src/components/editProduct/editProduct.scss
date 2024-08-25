@@ -11,7 +11,7 @@
     font-size: 22px;
   }
 
-  &-group {
+  &__group {
     margin-bottom: 15px;
 
     label {
@@ -25,6 +25,7 @@
       padding: 8px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      outline: none;
     }
   }
 }

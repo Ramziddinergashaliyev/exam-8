@@ -3,16 +3,22 @@
 
   &__top {
     position: relative;
-
     h2 {
       text-align: left;
-      font-size: 40px;
-      padding: 20px 0px;
+      font-size: 30px;
+      padding: 20px 16px;
     }
   }
 
   &__swaper {
     width: 100%;
+  }
+
+  @media (max-width: 450px) {
+    h2 {
+      font-size: 30px !important;
+      background-color: red;
+    }
   }
 }
 

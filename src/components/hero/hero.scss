@@ -1,12 +1,26 @@
 .hero {
   background-color: #f2f0f1;
+  &__card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
   &__left {
-    height: 600px;
+    // height: 600px;
     padding: 40px 0px;
-    background: url(../../assets/images/hero.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // background: url(../../assets/images/hero.png);
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+  }
+
+  &__right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    img {
+      width: 100%;
+    }
   }
 
   &__left__title {
@@ -14,8 +28,8 @@
     font-weight: 700;
     text-align: left;
     color: #000000;
-    width: 50%;
-    padding-top: 40px;
+    line-height: 80px;
+    padding-top: 20px;
   }
 
   &__left__text {
@@ -25,7 +39,7 @@
     text-align: left;
     color: #00000099;
     padding: 10px 0px;
-    width: 50%;
+    // width: 50%;
   }
 
   &__left__btn {
@@ -48,7 +62,7 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 50%;
+    // width: 50%;
   }
 
   &__left__result__card {
@@ -68,80 +82,85 @@
     }
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1110px) {
     &__left__title {
-      font-size: 54px;
+      font-size: 34px;
       font-weight: 700;
       text-align: left;
       color: #000000;
-      width: 60%;
+      line-height: 50px;
     }
-    &__left__result__card {
+    // &__left__result__card {
+    //   h1 {
+    //     font-size: 20px;
+    //     font-weight: 700;
+    //     text-align: left;
+    //     color: #000000;
+    //   }
+    //   p {
+    //     font-size: 12px;
+    //     font-weight: 400;
+    //     text-align: left;
+    //     color: #00000099;
+    //   }
+    // }
+  }
+
+  @media (max-width: 850px) {
+    &__card {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    &__left__result {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      // justify-content: center;
+    }
+  }
+
+  @media (max-width: 425px) {
+    &__left {
+      padding: 0px;
+    }
+
+    &__left__result {
+      gap: 10px;
+      &__card {
+        width: 130px;
+        text-align: center;
+      }
       h1 {
         font-size: 20px;
-        font-weight: 700;
-        text-align: left;
-        color: #000000;
-      }
-      p {
-        font-size: 12px;
-        font-weight: 400;
-        text-align: left;
-        color: #00000099;
+        text-align: center;
       }
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 400px) {
     &__left__title {
-      font-size: 34px;
-      font-weight: 700;
-      text-align: left;
-      color: #000000;
-      width: 60%;
-    }
-  }
-  @media (max-width: 700px) {
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40px 0px;
-    &__left__title {
-      font-size: 34px;
-      font-weight: 700;
-      text-align: left;
-      color: #000000;
-      width: 100%;
+      font-size: 30px;
+      text-align: center;
+      line-height: 35px;
     }
     &__left__text {
-      width: 100%;
-    }
-    &__left__result {
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
-  }
-  @media (max-width: 450px) {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40px 0px;
-    &__left__title {
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 16px;
       text-align: center;
-      color: #000000;
-      width: 100%;
+      line-height: 20px;
     }
-    &__left__text {
-      width: 100%;
-      font-size: 12px;
-      text-align: center;
-    }
+
     &__left__btn {
-      width: 100%;
-      text-align: center;
+      display: block;
+      margin: 0 auto;
+      padding: 10px 30px;
+    }
+  }
+
+  @media (max-width: 330px) {
+    &__left__result {
+      display: none;
     }
   }
 }

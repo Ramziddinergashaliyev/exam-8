@@ -1,6 +1,7 @@
 .products {
   &__card {
     overflow: hidden;
+    background-color: white;
     &__img {
       position: relative;
       height: 290px;
@@ -123,9 +124,11 @@
       }
     }
   }
+
   @media (max-width: 450px) {
     &__card {
       &__img {
+        height: 210px;
         img {
           height: 210px;
         }

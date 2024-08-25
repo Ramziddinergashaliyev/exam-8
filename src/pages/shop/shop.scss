@@ -157,4 +157,21 @@
       grid-gap: 20px;
     }
   }
+
+  @media (max-width: 850px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 550px) {
+    &__right-card {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+  }
+  @media (max-width: 350px) {
+    &__right-card {
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+    }
+  }
 }

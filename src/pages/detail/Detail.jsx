@@ -23,14 +23,12 @@ const Detail = () => {
   const { data } = useGetProductByIdQuery(id);
   const { data: product, isLoading } = useGetProductsQuery({ limit: 4 });
   const [img, setImg] = useState(0);
-  console.log(data?.payload);
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, [id]);
-
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.value);
   const wishlist = useSelector((state) => state.wishlist.value);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [id]);
 
   return (
     <div className="single container">

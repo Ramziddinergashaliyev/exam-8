@@ -22,10 +22,18 @@ const ManageProduct = () => {
       <div className="manage__products">
         <Products isTrue={isTrue} data={data?.payload} />
       </div>
-      <Stack spacing={2}>
-        <Typography>Page: {page}</Typography>
-        <Pagination count={totalCount} page={page} onChange={handleChange} />
-      </Stack>
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "flex-end",
+        }}
+      >
+        <Stack spacing={2}>
+          <Pagination count={totalCount} page={page} onChange={handleChange} />
+        </Stack>
+      </div>
     </>
   );
 };

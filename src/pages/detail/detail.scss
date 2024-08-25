@@ -229,7 +229,14 @@
     &__left__small {
       img {
         height: 100px;
+        width: 120px;
       }
+    }
+  }
+  @media (max-width: 380px) {
+    &__right__btns {
+      flex-direction: column;
+      gap: 5px;
     }
   }
 }

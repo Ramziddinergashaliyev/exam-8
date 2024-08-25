@@ -2,6 +2,7 @@ import React, { Fragment, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Checkout from "./pages/checkout/Checkout";
+import Profile from "./pages/admin/profile/Profile";
 const ManageProduct = lazy(() =>
   import("./pages/admin/manageProduct/ManageProduct")
 );
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Auth />}>
           <Route path="admin" element={<Admin />}>
+            <Route path="profile" element={<Profile />} />
             <Route path="manageProduct" element={<ManageProduct />} />
             <Route path="createProduct" element={<CreateProduct />} />
             <Route path="manageCategory" element={<ManageCategory />} />

@@ -3,14 +3,15 @@ import { Button, Form, Input, Upload, Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useCreateProductMutation } from "../../../context/api/productApi";
 import { useGetCategorysQuery } from "../../../context/api/categoryApi";
+import { useNavigate } from "react-router-dom";
 
 import "./createProduct.scss";
 
 const CreateProduct = () => {
   const [fileList, setFileList] = useState([]);
-  const [newProduct, setNewProduct] = useState({});
   const [create, { data, isLoading, isSuccess }] = useCreateProductMutation();
   const { data: categories } = useGetCategorysQuery();
+  const navigate = useNavigate();
 
   const handleFileChange = ({ fileList }) => {
     setFileList(fileList);
@@ -30,6 +31,12 @@ const CreateProduct = () => {
     await create(formData).unwrap();
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      navigate("/admin/manageProduct");
+    }
+  }, [isSuccess, navigate]);
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -40,7 +47,7 @@ const CreateProduct = () => {
       <Form
         name="basic"
         layout="vertical"
-        className="w-96 max-sm:w-400px"
+        className="form-category-value"
         labelCol={{
           span: 8,
         }}

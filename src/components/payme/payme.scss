@@ -1,7 +1,7 @@
 .payme {
   width: 700px;
   padding: 20px;
-  box-shadow: 1px 1px 10px #aaa4;
+  box-shadow: 1px 1px 10px #aaa2;
   border-radius: 10px;
   background-color: white;
   z-index: 9995;
@@ -11,7 +11,7 @@
     font-size: 32px;
     font-weight: 600;
     line-height: 37.57px;
-    color: #40bfff;
+    color: #00000099;
     padding: 40px 0px;
   }
 
@@ -20,7 +20,7 @@
     justify-content: space-between;
     svg {
       font-size: 20px;
-      color: #40bfff;
+      color: #00000099;
       cursor: pointer;
     }
   }
@@ -67,7 +67,7 @@
         font-weight: 600;
         line-height: 23.48px;
         text-align: left;
-        color: #40bfff;
+        color: #00000099;
       }
     }
     &__checkbox-card {
@@ -97,7 +97,7 @@
     margin: 10px auto;
     display: block;
     border: 1px solid transparent;
-    background-color: #40bfff;
+    background-color: #00000099;
     color: white;
   }
 

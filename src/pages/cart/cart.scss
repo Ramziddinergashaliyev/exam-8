@@ -180,4 +180,35 @@
   &__items__left-card:last-child {
     border-bottom: transparent;
   }
+
+  @media (max-width: 860px) {
+    &__items {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 500px) {
+    &__items__left-card-info__price {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    &__items__right__items-form {
+      display: none;
+    }
+  }
+  @media (max-width: 400px) {
+    &__items__left-card {
+      flex-direction: column;
+      &-img {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    &__items__left-card-info__price {
+      display: flex !important;
+      justify-content: space-between;
+    }
+  }
 }

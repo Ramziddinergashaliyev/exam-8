@@ -205,11 +205,14 @@
       display: block;
     }
   }
-  @media (max-width: 340px) {
+  @media (max-width: 360px) {
     &__nav__logo {
       img {
         width: 120px;
       }
+    }
+    &__nav__btns {
+      gap: 10px;
     }
   }
 }

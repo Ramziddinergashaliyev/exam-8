@@ -32,12 +32,12 @@ function Sidebar() {
   };
   return (
     <section className="sidebar">
-      <div className="sidebar__top">
+      <NavLink to={"/admin/profile"} className="sidebar__top">
         <div className="sidebar__top__btn">
           {data?.payload?.fname?.slice(0, 1)}
         </div>
         <h1>{data?.payload?.fname}</h1>
-      </div>
+      </NavLink>
       <ul className="sidebar__item">
         <div>
           <li className="sidebar__list">
