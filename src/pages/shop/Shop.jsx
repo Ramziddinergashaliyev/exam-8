@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./shop.scss";
 import { useGetProductsQuery } from "../../context/api/productApi";
 import Products from "../../components/products/Products";
@@ -8,11 +8,20 @@ import { Slider, Switch } from "antd";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { useGetCategorysQuery } from "../../context/api/categoryApi";
 
 const Shop = () => {
+  const [category, setCategory] = useState("");
   let limit = 3;
   const [page, setPage] = React.useState(1);
-  const { data } = useGetProductsQuery({ limit, skip: page });
+
+  const { data } = useGetProductsQuery({
+    limit,
+    skip: page,
+    category: category,
+  });
+
+  const { data: categories } = useGetCategorysQuery();
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -21,9 +30,18 @@ const Shop = () => {
     window.scroll(0, 0);
   }, []);
 
-  let totalCount = Math.ceil(data?.total / limit);
-
-  console.log(totalCount);
+  let totalCount = Math.ceil(data?.total / limit) || 0;
+  let categoryItems = categories?.payload?.map((el) => (
+    <li key={el._id} className="shop__left-item">
+      <data
+        value={el._id}
+        onClick={(e) => setCategory(e.target.value)}
+        className="shop__item"
+      >
+        {el.title}
+      </data>
+    </li>
+  ));
 
   return (
     <div className="shop container">
@@ -34,26 +52,17 @@ const Shop = () => {
         </div>
         <ul className="shop__left-list">
           <li className="shop__left-item">
-            T-shirts
-            <FaChevronRight />
+            <data
+              value=""
+              onClick={(e) => setCategory(e.target.value)}
+              className="shop__item"
+            >
+              All
+            </data>
           </li>
-          <li className="shop__left-item">
-            Shorts
-            <FaChevronRight />
-          </li>
-          <li className="shop__left-item">
-            Shirts
-            <FaChevronRight />
-          </li>
-          <li className="shop__left-item">
-            Hoodie
-            <FaChevronRight />
-          </li>
-          <li className="shop__left-item">
-            Jeans
-            <FaChevronRight />
-          </li>
+          {categoryItems}
         </ul>
+
         <div className="shop__left-price">
           <h3>
             Price
